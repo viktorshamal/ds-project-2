@@ -1,6 +1,18 @@
 from twitterapi import request_all_followers, TwitterException, RateLimitException
 from time import time
 
+politicians = [
+    22467612, # Nilas Bay Foged
+    26201346, # Lars Løkke
+    611076925, # Pernille Skipper
+    24687777, # Pernille Vermund
+    2712091824, # Søren Pape
+    19233129, # Morten Østergaard,
+    52039386, # Frank Jensen
+    854722518426451968, # Kristian Thulesen Dahl
+    26735736 # Anders Samuelsen
+]
+
 def request_follower_network(seeds, depth=1):
     users = [seeds]
     seen = {}
@@ -39,6 +51,4 @@ def request_follower_network(seeds, depth=1):
 
     return users
 
-time_start = time()
-followers = request_follower_network([26201346], 2)
-print(len(followers))
+followers = request_follower_network(politicians, 2)
