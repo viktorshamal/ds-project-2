@@ -17,7 +17,7 @@ def request_follower_network(seeds, depth=1):
     users = [seeds]
     seen = {}
 
-    with open("edgelist.txt", "w") as f:
+    with open(f"edgelists/edgelist-{time()}.txt", "w") as f:
         for i in range(0, depth):
             users.append([])
             j = 0
@@ -27,6 +27,7 @@ def request_follower_network(seeds, depth=1):
                 user = users[i][j]
                 if user in seen:
                     print("We've already scanned this user.")
+                    j += 1
                     continue
 
                 print(f"Requesting {user}")
