@@ -17,6 +17,7 @@
                 "RedirectOutput"
             ],
             "args": [
+                "2",
                 "--log=INFO"
             ]
         },
